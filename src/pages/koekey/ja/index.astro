@@ -1,24 +1,25 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="KoeKey - Voice Dictation for Windows" description="AI-powered voice dictation that keeps your data on your device" wide>
+<BaseLayout title="KoeKey - Windows用 音声入力アプリ" description="話すだけで文字入力。あなたの声はお使いのパソコンの中だけで処理されます。" lang="ja" wide>
   <div class="glow"></div>
 
   <!-- Lang Switch -->
   <div class="lang-switch">
-    <span class="lang-current">English</span>
-    <a href="/koekey/ja/">日本語</a>
+    <a href="/koekey/">English</a>
+    <span class="lang-current">日本語</span>
   </div>
 
   <!-- Hero -->
   <section class="hero">
-    <span class="hero-badge">Voice Dictation for Windows</span>
+    <span class="hero-badge">Windows用 音声入力アプリ</span>
     <h1>
-      <span class="gradient-text">Your voice, your text.</span>
+      <span class="gradient-text">話すだけで、文字入力。</span>
     </h1>
     <p class="hero-subtitle">
-      AI-powered voice dictation that keeps your data where it belongs — on your device.
+      キーボードを使わずに、声で文字を入力できるアプリです。<br />
+      あなたの声はお使いのパソコンの中だけで処理されるので、安心してお使いいただけます。
     </p>
     <div class="hero-actions">
       <a
@@ -33,7 +34,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           <rect x="1" y="12" width="10" height="10" fill="currentColor" />
           <rect x="12" y="12" width="10" height="10" fill="currentColor" />
         </svg>
-        Get it on Microsoft Store
+        Microsoft Store からダウンロード
       </a>
     </div>
   </section>
@@ -41,55 +42,56 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- Features -->
   <section class="features">
     <div class="section-header">
-      <p class="section-label">Features</p>
-      <h2>Everything you need for voice input.</h2>
+      <p class="section-label">できること</p>
+      <h2>声で文字を入力するために必要な機能がそろっています。</h2>
     </div>
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-icon">🎤</div>
-        <h3>Local Processing</h3>
+        <h3>パソコンだけで音声認識</h3>
         <p>
-          On-device speech recognition with Whisper / sherpa-onnx.
-          Works offline — your voice data never leaves your device.
+          インターネットに接続しなくても使えます。
+          あなたの声のデータは外部に送信されず、お使いのパソコンの中だけで処理されます。
         </p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">☁️</div>
-        <h3>Cloud STT</h3>
+        <h3>クラウド音声認識にも対応</h3>
         <p>
-          Supports Soniox and Deepgram. Use your own API key for high-accuracy cloud speech recognition.
+          より高い精度を求める場合は、インターネット経由の音声認識サービスも利用可能です。
+          ご自身でサービスの利用登録が必要です。
         </p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🎯</div>
-        <h3>Push-to-Talk</h3>
+        <h3>ボタンを押している間だけ録音</h3>
         <p>
-          Record only while holding a key. Works with touch, mouse, and keyboard.
-          Hands-free mode also available.
+          キーボードのキーやマウスのボタンを押している間だけ録音するので、
+          必要なときだけ音声を入力できます。画面タッチにも対応しています。
         </p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🔒</div>
-        <h3>Privacy First</h3>
+        <h3>あなたのデータを守ります</h3>
         <p>
-          Zero telemetry and analytics.
-          Transcription history is encrypted with AES-256-GCM and stored locally.
+          利用状況の収集や追跡は一切行いません。
+          入力した文字の履歴は暗号化してパソコン内に安全に保存されます。
         </p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📋</div>
-        <h3>Smart Clipboard</h3>
+        <h3>認識した文字を自動で入力</h3>
         <p>
-          Automatically pastes results into the active app.
-          Original clipboard contents are restored afterward.
+          音声から変換された文字は、今開いているアプリにそのまま入力されます。
+          コピー＆ペーストの手間はかかりません。
         </p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🌐</div>
-        <h3>Multilingual</h3>
+        <h3>日本語・英語・中国語に対応</h3>
         <p>
-          UI available in English, Japanese, and Chinese.
-          Speech recognition supports multiple languages depending on the model.
+          アプリの画面は日本語・英語・中国語で表示できます。
+          音声認識は、使用するモデルに応じてさまざまな言語に対応します。
         </p>
       </div>
     </div>
@@ -98,29 +100,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- Privacy -->
   <section class="privacy-section">
     <div class="privacy-card">
-      <p class="section-label">Privacy</p>
-      <h2>Your voice stays on your device.</h2>
+      <p class="section-label">プライバシー</p>
+      <h2>あなたの声は、パソコンの外に出ません。</h2>
       <p class="privacy-description">
-        With local models, all voice processing happens entirely on your device.
-        Cloud providers are optional and only active when you explicitly configure them.
-        KoeKey collects zero telemetry or analytics.
+        パソコン内の音声認識を使えば、声のデータがインターネットに送信されることはありません。
+        クラウドの音声認識サービスは、ご自身で設定しない限り使われることはありません。
+        利用状況の収集や追跡は一切行っていません。
       </p>
       <div class="privacy-features">
         <div class="privacy-feature">
           <span class="check">✓</span>
-          <span>Local voice processing</span>
+          <span>パソコン内で音声を処理</span>
         </div>
         <div class="privacy-feature">
           <span class="check">✓</span>
-          <span>AES-256-GCM encryption</span>
+          <span>履歴は暗号化して保存</span>
         </div>
         <div class="privacy-feature">
           <span class="check">✓</span>
-          <span>No telemetry</span>
+          <span>利用状況の収集なし</span>
         </div>
         <div class="privacy-feature">
           <span class="check">✓</span>
-          <span>No external data storage</span>
+          <span>外部サーバーへのデータ保存なし</span>
         </div>
       </div>
     </div>
@@ -128,10 +130,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   <!-- Policy -->
   <section class="policies-section">
-    <p class="section-label">Policy</p>
+    <p class="section-label">ポリシー</p>
     <div class="policy-links">
-      <a href="/koekey/privacy-policy" class="policy-link">
-        <span class="policy-title">Privacy Policy</span>
+      <a href="/koekey/privacy-policy-ja" class="policy-link">
+        <span class="policy-title">プライバシーポリシー</span>
         <span class="arrow">→</span>
       </a>
     </div>
@@ -214,9 +216,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .hero-subtitle {
     font-size: 1.15rem;
     color: var(--color-text-secondary);
-    max-width: 520px;
+    max-width: 560px;
     margin: 0 auto 2.5rem;
-    line-height: 1.6;
+    line-height: 1.8;
   }
 
   .hero-actions {
@@ -266,7 +268,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   .section-header h2 {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
     font-weight: 700;
     letter-spacing: -0.02em;
   }
@@ -318,7 +320,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .feature-card p {
     color: var(--color-text-muted);
     font-size: 0.9rem;
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   /* Privacy */
@@ -366,6 +368,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     margin: 0 auto 2rem;
     font-size: 0.95rem;
     position: relative;
+    line-height: 1.8;
   }
 
   .privacy-features {

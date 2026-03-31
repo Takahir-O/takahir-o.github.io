@@ -19,9 +19,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
         <p class="card-description">
           AI-powered voice dictation.<br />
-          ローカル処理対応で、音声データはデバイスの外に出ません。
+          Your voice data stays on your device.
         </p>
-        <span class="card-link">Learn more →</span>
+        <div class="card-langs">
+          <span class="card-link">English →</span>
+          <span class="card-divider">|</span>
+          <span class="card-link-alt" onclick="event.preventDefault(); window.location.href='/koekey/ja/';">日本語 →</span>
+        </div>
       </div>
     </a>
   </section>
@@ -146,10 +150,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: 1.5rem;
   }
 
+  .card-langs {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
   .card-link {
     color: var(--color-accent);
     font-weight: 500;
     font-size: 0.95rem;
+  }
+
+  .card-divider {
+    color: var(--color-border);
+  }
+
+  .card-link-alt {
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+
+  .card-link-alt:hover {
+    color: var(--color-accent);
   }
 
   .product-card:hover .card-link {

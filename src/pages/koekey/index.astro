@@ -13,6 +13,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
   <!-- Hero -->
   <section class="hero">
+    <img src="/images/koekey-logo.svg" alt="KoeKey" class="hero-logo" width="80" height="80" />
     <span class="hero-badge">Voice Dictation for Windows</span>
     <h1>
       <span class="gradient-text">Your voice, your text.</span>
@@ -179,6 +180,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   }
 
   /* Hero */
+  .hero-logo {
+    border-radius: 18px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 24px rgba(0, 132, 105, 0.2);
+  }
+
   .hero {
     text-align: center;
     padding: 4rem 0 4rem;

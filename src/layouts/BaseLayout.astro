@@ -1,0 +1,121 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  lang?: string;
+}
+
+const { title, description = 'Takahir-O - Products & Policies', lang = 'en' } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <style>
+      :root {
+        --color-bg: #0f0f0f;
+        --color-surface: #1a1a1a;
+        --color-border: #2a2a2a;
+        --color-text: #e5e5e5;
+        --color-text-muted: #999;
+        --color-accent: #6c8cff;
+        --color-accent-hover: #8da6ff;
+        --max-width: 720px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        background: var(--color-bg);
+        color: var(--color-text);
+        line-height: 1.7;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      a {
+        color: var(--color-accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: var(--color-accent-hover);
+      }
+
+      header {
+        border-bottom: 1px solid var(--color-border);
+        padding: 1rem 1.5rem;
+      }
+
+      header nav {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      header nav a {
+        color: var(--color-text-muted);
+        font-size: 0.9rem;
+      }
+
+      header nav a:hover {
+        color: var(--color-text);
+      }
+
+      main {
+        flex: 1;
+        max-width: var(--max-width);
+        margin: 0 auto;
+        padding: 2rem 1.5rem;
+        width: 100%;
+      }
+
+      footer {
+        border-top: 1px solid var(--color-border);
+        padding: 1.5rem;
+        text-align: center;
+        color: var(--color-text-muted);
+        font-size: 0.85rem;
+      }
+
+      footer a {
+        color: var(--color-text-muted);
+      }
+
+      footer a:hover {
+        color: var(--color-text);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/koekey/">KoeKey</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <p>&copy; 2026 Takahir-O</p>
+    </footer>
+  </body>
+</html>

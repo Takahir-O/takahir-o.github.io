@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="KoeKey" description="AI-powered voice dictation for Windows">
+  <section class="hero">
+    <h1>KoeKey</h1>
+    <p class="tagline">声を、テキストに。</p>
+    <p class="subtitle">AI-powered voice dictation for Windows.</p>
+    <a
+      href="https://apps.microsoft.com/detail/9NTW0S8D1GR4"
+      class="cta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Download on Microsoft Store
+    </a>
+  </section>
+
+  <section class="features">
+    <h2>Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>🎤 Local Processing</h3>
+        <p>
+          Whisper / sherpa-onnx によるローカル音声認識。
+          音声データはデバイスの外に出ません。
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>☁️ Cloud STT</h3>
+        <p>
+          Soniox, Deepgram に対応。
+          高精度なクラウド音声認識を自分の API キーで利用。
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>🎯 Push-to-Talk</h3>
+        <p>
+          キーを押している間だけ録音。
+          タッチ・マウス・キーボードに対応。
+        </p>
+      </div>
+      <div class="feature-card">
+        <h3>🔒 Privacy First</h3>
+        <p>
+          テレメトリ・アナリティクスは一切なし。
+          履歴は AES-256-GCM で暗号化しローカル保存。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy">
+    <h2>Your voice stays on your device.</h2>
+    <p>
+      ローカルモデルを使用すれば、すべての音声処理はデバイス上で完結します。
+      クラウドプロバイダーの使用はオプションで、あなたが明示的に設定した場合のみ有効になります。
+    </p>
+  </section>
+
+  <section class="policies">
+    <h2>Policies</h2>
+    <ul>
+      <li><a href="/koekey/privacy-policy">Privacy Policy (English)</a></li>
+      <li>
+        <a href="/koekey/privacy-policy-ja">プライバシーポリシー（日本語）</a>
+      </li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.5rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .subtitle {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .cta {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+
+  .cta:hover {
+    background: var(--color-accent-hover);
+    color: #fff;
+  }
+
+  .features {
+    padding: 2rem 0;
+  }
+
+  .features h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .feature-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .feature-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .privacy {
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .privacy h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .privacy p {
+    color: var(--color-text-muted);
+  }
+
+  .policies {
+    padding: 2rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .policies h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .policies ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>

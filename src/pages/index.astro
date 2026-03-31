@@ -2,40 +2,157 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Takahir-O" description="Products by Takahir-O">
-  <h1>Products</h1>
+<BaseLayout title="Takahir-O" description="Products by Takahir-O" wide>
+  <div class="glow"></div>
 
-  <section class="product-card">
-    <h2>KoeKey</h2>
-    <p>AI-powered voice dictation for Windows.</p>
-    <a href="/koekey/" class="link">Learn more →</a>
+  <section class="hero">
+    <p class="hero-label">Products</p>
+    <h1>Building tools that<br /><span class="gradient-text">respect your privacy.</span></h1>
+  </section>
+
+  <section class="products">
+    <a href="/koekey/" class="product-card">
+      <div class="card-content">
+        <div class="card-header">
+          <span class="card-badge">Windows</span>
+          <h2>KoeKey</h2>
+        </div>
+        <p class="card-description">
+          AI-powered voice dictation.<br />
+          ローカル処理対応で、音声データはデバイスの外に出ません。
+        </p>
+        <span class="card-link">Learn more →</span>
+      </div>
+    </a>
   </section>
 </BaseLayout>
 
 <style>
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+  .glow {
+    position: fixed;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(129, 140, 248, 0.08) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: -1;
   }
 
-  .product-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 2rem;
+  .hero {
+    padding: 4rem 0 3rem;
   }
 
-  .product-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .product-card p {
-    color: var(--color-text-muted);
+  .hero-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
     margin-bottom: 1rem;
   }
 
-  .link {
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .products {
+    padding: 1rem 0;
+  }
+
+  .product-card {
+    display: block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 2.5rem;
+    color: inherit;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(129, 140, 248, 0.04) 0%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .product-card:hover {
+    border-color: rgba(129, 140, 248, 0.3);
+    background: var(--color-surface-hover);
+    color: inherit;
+    transform: translateY(-2px);
+  }
+
+  .product-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-content {
+    position: relative;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .card-badge {
+    font-size: 0.75rem;
     font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    background: rgba(129, 140, 248, 0.1);
+    color: var(--color-accent);
+    border-radius: 100px;
+    border: 1px solid rgba(129, 140, 248, 0.2);
+  }
+
+  .card-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .card-description {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-link {
+    color: var(--color-accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .product-card:hover .card-link {
+    color: var(--color-accent-hover);
   }
 </style>

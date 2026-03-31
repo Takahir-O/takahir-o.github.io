@@ -3,9 +3,15 @@ interface Props {
   title: string;
   description?: string;
   lang?: string;
+  wide?: boolean;
 }
 
-const { title, description = 'Takahir-O - Products & Policies', lang = 'en' } = Astro.props;
+const {
+  title,
+  description = 'Takahir-O - Products & Policies',
+  lang = 'en',
+  wide = false,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -16,16 +22,25 @@ const { title, description = 'Takahir-O - Products & Policies', lang = 'en' } = 
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-    <style>
+    <style is:global>
       :root {
-        --color-bg: #0f0f0f;
-        --color-surface: #1a1a1a;
-        --color-border: #2a2a2a;
-        --color-text: #e5e5e5;
-        --color-text-muted: #999;
-        --color-accent: #6c8cff;
-        --color-accent-hover: #8da6ff;
+        --color-bg: #09090b;
+        --color-surface: #131316;
+        --color-surface-hover: #1a1a1f;
+        --color-border: #23232a;
+        --color-text: #ececef;
+        --color-text-secondary: #a0a0ab;
+        --color-text-muted: #6b6b76;
+        --color-accent: #818cf8;
+        --color-accent-hover: #a5b4fc;
+        --gradient-primary: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+        --gradient-bg: radial-gradient(
+          ellipse 80% 50% at 50% -20%,
+          rgba(129, 140, 248, 0.12),
+          transparent
+        );
         --max-width: 720px;
+        --max-width-wide: 960px;
       }
 
       * {
@@ -35,11 +50,14 @@ const { title, description = 'Takahir-O - Products & Policies', lang = 'en' } = 
       }
 
       html {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        font-family:
+          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
           'Helvetica Neue', Arial, sans-serif;
         background: var(--color-bg);
         color: var(--color-text);
         line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
       }
 
       body {
@@ -51,71 +69,152 @@ const { title, description = 'Takahir-O - Products & Policies', lang = 'en' } = 
       a {
         color: var(--color-accent);
         text-decoration: none;
+        transition: color 0.15s ease;
       }
 
       a:hover {
         color: var(--color-accent-hover);
       }
 
-      header {
-        border-bottom: 1px solid var(--color-border);
-        padding: 1rem 1.5rem;
+      /* Markdown content styles */
+      .markdown-content h1 { font-size: 2rem; margin: 2rem 0 1rem; font-weight: 700; }
+      .markdown-content h2 { font-size: 1.4rem; margin: 2.5rem 0 0.75rem; font-weight: 600; color: var(--color-text); }
+      .markdown-content h3 { font-size: 1.15rem; margin: 2rem 0 0.5rem; font-weight: 600; }
+      .markdown-content p { margin: 0.75rem 0; color: var(--color-text-secondary); }
+      .markdown-content ul, .markdown-content ol { margin: 0.75rem 0; padding-left: 1.5rem; color: var(--color-text-secondary); }
+      .markdown-content li { margin: 0.35rem 0; }
+      .markdown-content strong { color: var(--color-text); font-weight: 600; }
+      .markdown-content blockquote {
+        border-left: 3px solid var(--color-accent);
+        padding: 0.5rem 1rem;
+        margin: 1rem 0;
+        background: var(--color-surface);
+        border-radius: 0 8px 8px 0;
       }
-
-      header nav {
-        max-width: var(--max-width);
-        margin: 0 auto;
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
+      .markdown-content blockquote p { color: var(--color-text-secondary); }
+      .markdown-content code {
+        background: var(--color-surface);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9em;
       }
-
-      header nav a {
-        color: var(--color-text-muted);
-        font-size: 0.9rem;
-      }
-
-      header nav a:hover {
-        color: var(--color-text);
-      }
-
-      main {
-        flex: 1;
-        max-width: var(--max-width);
-        margin: 0 auto;
-        padding: 2rem 1.5rem;
-        width: 100%;
-      }
-
-      footer {
+      .markdown-content hr {
+        border: none;
         border-top: 1px solid var(--color-border);
-        padding: 1.5rem;
-        text-align: center;
-        color: var(--color-text-muted);
-        font-size: 0.85rem;
-      }
-
-      footer a {
-        color: var(--color-text-muted);
-      }
-
-      footer a:hover {
-        color: var(--color-text);
+        margin: 2rem 0;
       }
     </style>
   </head>
   <body>
     <header>
       <nav>
-        <a href="/">Home</a>
-        <a href="/koekey/">KoeKey</a>
+        <a href="/" class="nav-logo">Takahir-O</a>
+        <div class="nav-links">
+          <a href="/koekey/">KoeKey</a>
+        </div>
       </nav>
     </header>
-    <main>
-      <slot />
+    <main class:list={[{ wide }]}>
+      <div class="markdown-content">
+        <slot />
+      </div>
     </main>
     <footer>
-      <p>&copy; 2026 Takahir-O</p>
+      <div class="footer-inner">
+        <p>&copy; 2026 Takahir-O</p>
+        <div class="footer-links">
+          <a href="https://github.com/Takahir-O" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 0 1.5rem;
+  }
+
+  nav {
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .nav-logo {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    font-weight: 450;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-text);
+  }
+
+  main {
+    flex: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+    width: 100%;
+  }
+
+  main.wide {
+    max-width: var(--max-width-wide);
+  }
+
+  footer {
+    border-top: 1px solid var(--color-border);
+    padding: 2rem 1.5rem;
+  }
+
+  .footer-inner {
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-text);
+  }
+</style>

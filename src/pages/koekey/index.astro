@@ -2,127 +2,293 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="KoeKey" description="AI-powered voice dictation for Windows">
+<BaseLayout title="KoeKey" description="AI-powered voice dictation for Windows" wide>
+  <div class="glow"></div>
+
+  <!-- Hero -->
   <section class="hero">
-    <h1>KoeKey</h1>
-    <p class="tagline">声を、テキストに。</p>
-    <p class="subtitle">AI-powered voice dictation for Windows.</p>
-    <a
-      href="https://apps.microsoft.com/detail/9NTW0S8D1GR4"
-      class="cta"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Download on Microsoft Store
-    </a>
+    <span class="hero-badge">Voice Dictation for Windows</span>
+    <h1>
+      <span class="gradient-text">声を、テキストに。</span>
+    </h1>
+    <p class="hero-subtitle">
+      AI-powered voice dictation that keeps your data where it belongs — on your device.
+    </p>
+    <div class="hero-actions">
+      <a
+        href="https://apps.microsoft.com/detail/9NTW0S8D1GR4"
+        class="btn-primary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <svg width="20" height="20" viewBox="0 0 23 23" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="10" height="10" fill="currentColor" />
+          <rect x="12" y="1" width="10" height="10" fill="currentColor" />
+          <rect x="1" y="12" width="10" height="10" fill="currentColor" />
+          <rect x="12" y="12" width="10" height="10" fill="currentColor" />
+        </svg>
+        Get it on Microsoft Store
+      </a>
+      <a
+        href="https://github.com/Takahir-O/koekey"
+        class="btn-secondary"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View on GitHub
+      </a>
+    </div>
   </section>
 
+  <!-- Features -->
   <section class="features">
-    <h2>Features</h2>
+    <div class="section-header">
+      <p class="section-label">Features</p>
+      <h2>Everything you need for voice input.</h2>
+    </div>
     <div class="feature-grid">
       <div class="feature-card">
-        <h3>🎤 Local Processing</h3>
+        <div class="feature-icon">🎤</div>
+        <h3>Local Processing</h3>
         <p>
-          Whisper / sherpa-onnx によるローカル音声認識。
-          音声データはデバイスの外に出ません。
+          Whisper / sherpa-onnx によるオンデバイス音声認識。
+          インターネット接続なしで動作し、音声データは一切外部に送信されません。
         </p>
       </div>
       <div class="feature-card">
-        <h3>☁️ Cloud STT</h3>
+        <div class="feature-icon">☁️</div>
+        <h3>Cloud STT</h3>
         <p>
-          Soniox, Deepgram に対応。
-          高精度なクラウド音声認識を自分の API キーで利用。
+          Soniox, Deepgram に対応。自分の API キーで高精度なクラウド音声認識を利用できます。
         </p>
       </div>
       <div class="feature-card">
-        <h3>🎯 Push-to-Talk</h3>
+        <div class="feature-icon">🎯</div>
+        <h3>Push-to-Talk</h3>
         <p>
-          キーを押している間だけ録音。
-          タッチ・マウス・キーボードに対応。
+          キーを押している間だけ録音。タッチ・マウス・キーボードすべてに対応。
+          ハンズフリーモードも搭載。
         </p>
       </div>
       <div class="feature-card">
-        <h3>🔒 Privacy First</h3>
+        <div class="feature-icon">🔒</div>
+        <h3>Privacy First</h3>
         <p>
           テレメトリ・アナリティクスは一切なし。
-          履歴は AES-256-GCM で暗号化しローカル保存。
+          文字起こし履歴は AES-256-GCM で暗号化しローカルに保存。
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📋</div>
+        <h3>Smart Clipboard</h3>
+        <p>
+          認識結果をアクティブなアプリに自動ペースト。
+          元のクリップボード内容は自動復元されます。
+        </p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Multilingual</h3>
+        <p>
+          UI は日本語・英語・中国語に対応。
+          音声認識は使用するモデルに応じて多言語をサポートします。
         </p>
       </div>
     </div>
   </section>
 
-  <section class="privacy">
-    <h2>Your voice stays on your device.</h2>
-    <p>
-      ローカルモデルを使用すれば、すべての音声処理はデバイス上で完結します。
-      クラウドプロバイダーの使用はオプションで、あなたが明示的に設定した場合のみ有効になります。
-    </p>
+  <!-- Privacy -->
+  <section class="privacy-section">
+    <div class="privacy-card">
+      <p class="section-label">Privacy</p>
+      <h2>Your voice stays on your device.</h2>
+      <p class="privacy-description">
+        ローカルモデルを使用すれば、すべての音声処理はデバイス上で完結します。
+        クラウドプロバイダーの使用はオプションで、あなたが明示的に設定した場合のみ有効になります。
+        KoeKey はテレメトリやアナリティクスを一切収集しません。
+      </p>
+      <div class="privacy-features">
+        <div class="privacy-feature">
+          <span class="check">✓</span>
+          <span>ローカル音声処理</span>
+        </div>
+        <div class="privacy-feature">
+          <span class="check">✓</span>
+          <span>AES-256-GCM 暗号化</span>
+        </div>
+        <div class="privacy-feature">
+          <span class="check">✓</span>
+          <span>テレメトリなし</span>
+        </div>
+        <div class="privacy-feature">
+          <span class="check">✓</span>
+          <span>外部サーバーにデータ保存なし</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="policies">
-    <h2>Policies</h2>
-    <ul>
-      <li><a href="/koekey/privacy-policy">Privacy Policy (English)</a></li>
-      <li>
-        <a href="/koekey/privacy-policy-ja">プライバシーポリシー（日本語）</a>
-      </li>
-    </ul>
+  <!-- Policies -->
+  <section class="policies-section">
+    <p class="section-label">Policies</p>
+    <div class="policy-links">
+      <a href="/koekey/privacy-policy" class="policy-link">
+        <span class="policy-title">Privacy Policy</span>
+        <span class="policy-lang">English</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="/koekey/privacy-policy-ja" class="policy-link">
+        <span class="policy-title">プライバシーポリシー</span>
+        <span class="policy-lang">日本語</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
   </section>
 </BaseLayout>
 
 <style>
+  .glow {
+    position: fixed;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 60%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(129, 140, 248, 0.1) 0%,
+      rgba(192, 132, 252, 0.04) 40%,
+      transparent 70%
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Hero */
   .hero {
     text-align: center;
-    padding: 3rem 0;
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.35rem 1rem;
+    background: rgba(129, 140, 248, 0.1);
+    color: var(--color-accent);
+    border-radius: 100px;
+    border: 1px solid rgba(129, 140, 248, 0.2);
+    margin-bottom: 1.5rem;
   }
 
   .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.25rem;
   }
 
-  .tagline {
-    font-size: 1.5rem;
-    color: var(--color-text-muted);
-    margin-bottom: 0.25rem;
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .subtitle {
-    color: var(--color-text-muted);
-    margin-bottom: 2rem;
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
   }
 
-  .cta {
-    display: inline-block;
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.75rem;
     background: var(--color-accent);
     color: #fff;
-    padding: 0.75rem 2rem;
-    border-radius: 8px;
+    border-radius: 10px;
     font-weight: 600;
-    transition: background 0.2s;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 20px rgba(129, 140, 248, 0.25);
   }
 
-  .cta:hover {
+  .btn-primary:hover {
     background: var(--color-accent-hover);
     color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 0 30px rgba(129, 140, 248, 0.35);
   }
 
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.75rem;
+    background: transparent;
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-text-muted);
+    color: var(--color-text);
+  }
+
+  /* Features */
   .features {
-    padding: 2rem 0;
+    padding: 3rem 0;
   }
 
-  .features h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-header h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 
   .feature-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
     .feature-grid {
       grid-template-columns: 1fr;
     }
@@ -131,48 +297,155 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .feature-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 1.5rem;
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: all 0.25s ease;
+  }
+
+  .feature-card:hover {
+    border-color: rgba(129, 140, 248, 0.2);
+    background: var(--color-surface-hover);
+    transform: translateY(-2px);
+  }
+
+  .feature-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
   }
 
   .feature-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
 
   .feature-card p {
     color: var(--color-text-muted);
     font-size: 0.9rem;
+    line-height: 1.6;
   }
 
-  .privacy {
-    padding: 2rem 0;
+  /* Privacy */
+  .privacy-section {
+    padding: 3rem 0;
+  }
+
+  .privacy-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 3rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
 
-  .privacy h2 {
-    font-size: 1.3rem;
+  .privacy-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      rgba(129, 140, 248, 0.06),
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .privacy-card h2 {
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
     margin-bottom: 1rem;
+    position: relative;
   }
 
-  .privacy p {
-    color: var(--color-text-muted);
+  .privacy-card .section-label {
+    position: relative;
   }
 
-  .policies {
-    padding: 2rem 0;
-    border-top: 1px solid var(--color-border);
+  .privacy-description {
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    margin: 0 auto 2rem;
+    font-size: 0.95rem;
+    position: relative;
   }
 
-  .policies h2 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+  .privacy-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    position: relative;
   }
 
-  .policies ul {
-    list-style: none;
+  .privacy-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    padding: 0.4rem 1rem;
+    background: rgba(129, 140, 248, 0.06);
+    border-radius: 100px;
+    border: 1px solid rgba(129, 140, 248, 0.1);
+  }
+
+  .check {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* Policies */
+  .policies-section {
+    padding: 3rem 0 1rem;
+  }
+
+  .policy-links {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .policy-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    color: inherit;
+    transition: all 0.2s ease;
+  }
+
+  .policy-link:hover {
+    border-color: rgba(129, 140, 248, 0.2);
+    background: var(--color-surface-hover);
+    color: inherit;
+  }
+
+  .policy-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .policy-lang {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  .arrow {
+    margin-left: auto;
+    color: var(--color-text-muted);
+    transition: all 0.2s ease;
+  }
+
+  .policy-link:hover .arrow {
+    color: var(--color-accent);
+    transform: translateX(3px);
   }
 </style>
